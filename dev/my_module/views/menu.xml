@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="demo_demo_tree_view">
+            <field name="name">demo.demo.tree</field>
+            <field name="model">demo.demo</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="demo_demo_form_view">
+            <field name="name">demo.demo.form</field>
+            <field name="model">demo.demo</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="demo_demo_menu_view">
+            <field name="name">demo.demo.menu</field>
+            <field name="model">ir.ui.menu</field>
+            <field name="arch" type="xml">
+                <menuitem name="Demo" id="menu_demo" />
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="demo_demo_action">
+            <field name="name">Demo</field>
+            <field name="res_model">demo.demo</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Demo" id="menu_demo_root" />
+
+        <menuitem
+            name="Demo Objects"
+            id="menu_demo_objects"
+            parent="menu_demo_root"
+            action="demo_demo_action"
+        />
+    </data>
+</odoo>
+
